@@ -68,9 +68,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     .join('');
 
                 const speakersHtml = event.speakers.join(', ');
+                const calendarUrl = createGoogleCalendarUrl(event);
 
                 card.innerHTML = `
-                    <div class="time-badge">${event.startTime} - ${event.endTime}</div>
+                    <div class="card-header">
+                        <div class="time-badge">${event.startTime} - ${event.endTime}</div>
+                        <a href="${calendarUrl}" target="_blank" class="calendar-btn" title="Add to Google Calendar">📅 Add to Calendar</a>
+                    </div>
                     <h3>${event.title}</h3>
                     <div class="speakers">🗣️ ${speakersHtml}</div>
                     <div class="category-tags">${categoriesHtml}</div>
@@ -80,5 +84,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
             scheduleContainer.appendChild(card);
         });
+    }
+
+    function createGoogleCalendarUrl(event) {
+        if (!event.startTimeISO || !event.endTimeISO) return '#';
+
+        // Format dates to YYYYMMDDTHHmmSSZ
+        const formatInfo = (isoString) => isoString.replace(/-|:|\.\d{3}/g, "");
+        const start = formatInfo(event.startTimeISO);
+        const end = formatInfo(event.endTimeISO);
+        
+        const title = encodeURIComponent(event.title);
+        const details = encodeURIComponent(`${event.description}\n\nSpeakers: ${event.speakers.join(", ")}`);
+        
+        return `https://www.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${start}/${end}&details=${details}`;
     }
 });

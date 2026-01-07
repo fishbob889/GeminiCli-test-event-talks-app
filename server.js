@@ -71,7 +71,9 @@ app.get('/api/schedule', (req, res) => {
                 type: 'talk',
                 ...talk,
                 startTime: formatTime(startTime),
-                endTime: formatTime(endTime)
+                endTime: formatTime(endTime),
+                startTimeISO: startTime.toISOString(),
+                endTimeISO: endTime.toISOString()
             });
 
             currentTime = endTime;

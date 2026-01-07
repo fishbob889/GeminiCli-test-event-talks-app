@@ -100,6 +100,27 @@ header p {
     font-size: 1.1rem;
 }
 
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.calendar-btn {
+    text-decoration: none;
+    color: var(--text-main);
+    background: #f1f5f9;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+    border: 1px solid var(--border-color);
+}
+
+.calendar-btn:hover {
+    background: #e2e8f0;
+}
+
 .time-badge {
     display: inline-block;
     background-color: #e0e7ff;
