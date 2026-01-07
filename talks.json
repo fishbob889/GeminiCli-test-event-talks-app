@@ -1,0 +1,44 @@
+[
+  {
+    "title": "Modern Frontend Architecture with React Server Components",
+    "speakers": ["Sarah Chen"],
+    "category": ["Frontend", "React"],
+    "duration": 60,
+    "description": "Deep dive into the paradigm shift of Server Components, exploring how they improve performance and user experience in modern web applications."
+  },
+  {
+    "title": "Scaling Node.js Microservices on Kubernetes",
+    "speakers": ["David Miller", "James Wilson"],
+    "category": ["Backend", "DevOps"],
+    "duration": 60,
+    "description": "A practical guide to building resilient and scalable microservices architectures using Node.js, covering containerization, orchestration, and best practices."
+  },
+  {
+    "title": "The Future of Generative AI in Software Development",
+    "speakers": ["Dr. Emily Zhang"],
+    "category": ["AI", "Machine Learning"],
+    "duration": 60,
+    "description": "Exploring how LLMs are transforming the coding landscape, from code completion to automated testing and architectural design."
+  },
+  {
+    "title": "Zero Trust Security: A Developer's Perspective",
+    "speakers": ["Michael Ross"],
+    "category": ["Security"],
+    "duration": 60,
+    "description": "Understanding the principles of Zero Trust security and how to implement robust authentication and authorization flows in your applications."
+  },
+  {
+    "title": "Optimizing Database Performance for High-Scale Apps",
+    "speakers": ["Lisa Wong"],
+    "category": ["Database", "Backend"],
+    "duration": 60,
+    "description": "Strategies for indexing, query optimization, and caching to handle millions of requests without compromising latency."
+  },
+  {
+    "title": "Building Accessible Web Applications for Everyone",
+    "speakers": ["Robert Taylor", "Anna Garcia"],
+    "category": ["Accessibility", "UX"],
+    "duration": 60,
+    "description": "Hands-on techniques for ensuring your web applications are inclusive and meet WCAG standards, improving experience for all users."
+  }
+]
