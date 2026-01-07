@@ -19,26 +19,23 @@ document.addEventListener('DOMContentLoaded', () => {
     searchInput.addEventListener('input', (e) => {
         const searchTerm = e.target.value.toLowerCase().trim();
         const filteredEvents = allEvents.filter(event => {
-            // Keep breaks visible? Or hide breaks if filtering? 
-            // Usually if I search for "React", I don't want to see "Lunch".
-            // However, seeing "Lunch" might be confusing if it's out of context.
-            // Let's filter EVERYTHING based on match.
-            // But breaks have category ['Break'].
-            
             // Allow breaks to show if search is empty.
             if (!searchTerm) return true;
 
-            // Search logic: check category text
-            // category is an array of strings
-            const categoryMatch = event.category.some(cat => 
+            // 1. Check Category (Array of strings)
+            const categoryMatch = event.category && event.category.some(cat => 
                 cat.toLowerCase().includes(searchTerm)
             );
-            
-            // Optional: Search title too? Requirement says "search talks based on category".
-            // I will stick to category ONLY as requested, but usually users expect title search too.
-            // I'll stick to strict requirement: "search the talks based on category".
-            
-            return categoryMatch;
+
+            // 2. Check Title (String)
+            const titleMatch = event.title && event.title.toLowerCase().includes(searchTerm);
+
+            // 3. Check Speakers (Array of strings)
+            const speakerMatch = event.speakers && event.speakers.some(speaker => 
+                speaker.toLowerCase().includes(searchTerm)
+            );
+
+            return categoryMatch || titleMatch || speakerMatch;
         });
         renderSchedule(filteredEvents);
     });
@@ -47,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         scheduleContainer.innerHTML = '';
 
         if (events.length === 0) {
-            scheduleContainer.innerHTML = '<div class="no-results">No talks found matching that category.</div>';
+            scheduleContainer.innerHTML = '<div class="no-results">No talks found matching your search.</div>';
             return;
         }
 
