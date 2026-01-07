@@ -19,7 +19,10 @@ document.addEventListener('DOMContentLoaded', () => {
     searchInput.addEventListener('input', (e) => {
         const searchTerm = e.target.value.toLowerCase().trim();
         const filteredEvents = allEvents.filter(event => {
-            // Allow breaks to show if search is empty.
+            // Always show breaks/lunch to maintain schedule continuity (Issue #2)
+            if (event.type === 'break') return true;
+
+            // Allow talks to show if search is empty.
             if (!searchTerm) return true;
 
             // 1. Check Category (Array of strings)
