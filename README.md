@@ -1,19 +1,23 @@
 # TechDay 2026 Event Schedule
 
-A responsive web application to display the schedule for a 1-day technical event.
+A responsive web application to display the schedule for a 1-day technical event. This project was built to demonstrate a modern, mobile-friendly schedule management system with real-time filtering and calendar integration.
 
 ## Features
 
-*   **Dynamic Schedule Generation:** Automatically calculates talk timings, including transitions and breaks.
-*   **Search Functionality:** Filter talks by category (e.g., "Frontend", "AI", "Security").
-*   **Responsive Design:** Optimized for both desktop and mobile viewing.
-*   **Modern UI:** Clean, card-based layout with clear visual hierarchy.
+*   **📅 Google Calendar Integration:** One-click button to add specific talks to your personal Google Calendar.
+*   **🔍 Advanced Search:** Instant filtering across multiple fields:
+    *   Talk Titles
+    *   Speaker Names
+    *   Categories/Keywords
+*   **🧩 Schedule Continuity:** Intelligent filtering that keeps lunch breaks and transitions visible to maintain the timeline's context.
+*   **⚡ Dynamic Timings:** Automatically calculates start/end times for a single-track event with customizable transition gaps.
+*   **📱 Responsive Design:** Modern, clean card-based layout that works perfectly on desktop, tablets, and mobile phones.
 
 ## Technologies Used
 
-*   **Backend:** Node.js, Express.js
-*   **Frontend:** HTML5, CSS3, JavaScript (ES6+)
-*   **Data:** JSON file storage (`talks.json`)
+*   **Backend:** Node.js, Express.js (REST API for schedule data)
+*   **Frontend:** HTML5, CSS3 (Custom Variables), JavaScript (ES6+, Fetch API)
+*   **Data:** JSON-based persistent storage (`talks.json`)
 
 ## Getting Started
 
@@ -48,13 +52,13 @@ A responsive web application to display the schedule for a 1-day technical event
 ## Project Structure
 
 ```
-├── public/             # Frontend files
-│   ├── index.html      # Main HTML page
-│   ├── style.css       # Stylesheets
-│   └── script.js       # Client-side logic
-├── server.js           # Express server and schedule logic
-├── talks.json          # Raw talk data
-├── package.json        # Project metadata and dependencies
+├── public/             # Frontend static assets
+│   ├── index.html      # Main application structure
+│   ├── style.css       # Custom CSS with responsive grid
+│   └── script.js       # Client-side state and search logic
+├── server.js           # Node.js/Express server & Schedule generator
+├── talks.json          # Raw source of truth for event data
+├── package.json        # Dependencies and scripts
 └── README.md           # Project documentation
 ```
 
